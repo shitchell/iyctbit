@@ -1,6 +1,12 @@
 {
   "battery": {
+    "name": "Battery",
     "year": 1800,
+    "info": "A battery is a device that stores chemical energy and converts it to electrical energy. The first true battery was invented by Alessandro Volta in 1800.",
+    "links": [
+      {"text": "Battery (electricity)", "url": "https://en.wikipedia.org/wiki/Battery_(electricity)"},
+      {"text": "Alessandro Volta", "url": "https://en.wikipedia.org/wiki/Alessandro_Volta"}
+    ],
     "components": [
       ["vinegar", "zinc", "copper_plate"],
       ["graphite_rod", "zinc", "lemon_juice"]
@@ -11,12 +17,251 @@
     ]
   },
   "copper_plate": {
+    "name": "Copper Plate",
     "year": 1400,
+    "info": "Copper has been used by humans for over 10,000 years. It's malleable, ductile, and an excellent conductor of heat and electricity.",
+    "links": [
+      {"text": "Copper", "url": "https://en.wikipedia.org/wiki/Copper"},
+      {"text": "History of metallurgy", "url": "https://en.wikipedia.org/wiki/History_of_metallurgy"}
+    ],
     "components": [
       ["copper_ore", "forge", "hammer"]
     ],
     "herrings": [
       { "components": ["silver_ore", "wooden_mallet"], "plausibility": 0.7 }
+    ]
+  },
+  "zinc": {
+    "name": "Zinc",
+    "year": 1400,
+    "info": "While zinc as a pure metal wasn't isolated until the 16th century in India, zinc ores were used much earlier in brass production.",
+    "links": [
+      {"text": "Zinc", "url": "https://en.wikipedia.org/wiki/Zinc"},
+      {"text": "History of zinc", "url": "https://en.wikipedia.org/wiki/Zinc#History"}
+    ],
+    "components": [
+      ["calamine", "charcoal", "furnace"],
+      ["zinc_ore", "heat", "separation_vessel"]
+    ],
+    "herrings": [
+      { "components": ["lead", "mercury"], "plausibility": 0.4 },
+      { "components": ["tin", "silver_dust"], "plausibility": 0.6 }
+    ]
+  },
+  "graphite_rod": {
+    "name": "Graphite Rod",
+    "year": 1500,
+    "info": "Graphite is a crystalline form of carbon. It was first discovered in the 16th century and was initially confused with lead.",
+    "links": [
+      {"text": "Graphite", "url": "https://en.wikipedia.org/wiki/Graphite"},
+      {"text": "Carbon", "url": "https://en.wikipedia.org/wiki/Carbon"}
+    ],
+    "components": [
+      ["graphite_deposit", "saw", "polishing_cloth"],
+      ["charcoal", "intense_heat", "mold"]
+    ],
+    "herrings": [
+      { "components": ["coal", "water"], "plausibility": 0.3 }
+    ]
+  },
+  "copper_ore": {
+    "name": "Copper Ore",
+    "year": 1000,
+    "info": "Copper ore is rock that contains copper minerals in concentrations high enough to make extraction economically viable.",
+    "links": [
+      {"text": "Copper ore", "url": "https://en.wikipedia.org/wiki/Copper_ore"}
+    ],
+    "components": [
+      ["prospecting", "mining_pick", "river_bed"],
+      ["mountain_excavation", "rock_sorting"]
+    ],
+    "herrings": [
+      { "components": ["digging", "beach_sand"], "plausibility": 0.3 }
+    ]
+  },
+  "forge": {
+    "name": "Forge",
+    "year": 1000,
+    "info": "A forge is a hearth used for heating metals or for smelting ores. It's a crucial technology in metalworking.",
+    "links": [
+      {"text": "Forge", "url": "https://en.wikipedia.org/wiki/Forge"}
+    ],
+    "components": [
+      ["bricks", "charcoal", "bellows"],
+      ["stone_chamber", "wood_fire", "air_pump"]
+    ],
+    "herrings": [
+      { "components": ["clay_pot", "campfire"], "plausibility": 0.4 }
+    ]
+  },
+  "hammer": {
+    "name": "Blacksmith's Hammer",
+    "year": 800,
+    "info": "A hammer is a tool used to deliver an impact to an object. Metalworking hammers are specifically designed for shaping metal.",
+    "links": [
+      {"text": "Hammer", "url": "https://en.wikipedia.org/wiki/Hammer"},
+      {"text": "Blacksmith", "url": "https://en.wikipedia.org/wiki/Blacksmith"}
+    ],
+    "components": [
+      ["iron_head", "wooden_handle", "leather_binding"],
+      ["steel_block", "hardwood_shaft", "metal_wedge"]
+    ],
+    "herrings": [
+      { "components": ["rock", "stick", "string"], "plausibility": 0.5 }
+    ]
+  },
+  "calamine": {
+    "name": "Calamine",
+    "year": 1000,
+    "info": "Calamine is a historic term for an ore of zinc, typically zinc carbonate or zinc silicate minerals.",
+    "links": [
+      {"text": "Calamine (mineral)", "url": "https://en.wikipedia.org/wiki/Calamine_(mineral)"}
+    ],
+    "components": [
+      ["zinc_rich_soil", "mining", "washing"],
+      ["mountain_stone", "crushing", "sifting"]
+    ],
+    "herrings": [
+      { "components": ["river_mud", "fire"], "plausibility": 0.3 }
+    ]
+  },
+  "charcoal": {
+    "name": "Charcoal",
+    "year": 500,
+    "info": "Charcoal is produced by slow heating of wood or other organic materials in the absence of oxygen.",
+    "links": [
+      {"text": "Charcoal", "url": "https://en.wikipedia.org/wiki/Charcoal"}
+    ],
+    "components": [
+      ["wood", "earthen_kiln", "limited_oxygen"],
+      ["timber", "controlled_burning", "clay_covering"]
+    ],
+    "herrings": [
+      { "components": ["leaves", "open_fire"], "plausibility": 0.4 }
+    ]
+  },
+  "furnace": {
+    "name": "Furnace",
+    "year": 1200,
+    "info": "A furnace is a device used for high-temperature heating, particularly for metal processing.",
+    "links": [
+      {"text": "Furnace", "url": "https://en.wikipedia.org/wiki/Furnace"}
+    ],
+    "components": [
+      ["stone_chamber", "chimney", "bellows", "charcoal"],
+      ["brick_structure", "air_channel", "heat_insulation"]
+    ],
+    "herrings": [
+      { "components": ["clay_pot", "wood"], "plausibility": 0.3 }
+    ]
+  },
+  "graphite_deposit": {
+    "name": "Graphite Deposit",
+    "year": 1400,
+    "info": "Natural graphite occurs in metamorphic rocks as a result of the reduction of sedimentary carbon compounds during metamorphism.",
+    "links": [
+      {"text": "Graphite", "url": "https://en.wikipedia.org/wiki/Graphite#Occurrence"}
+    ],
+    "components": [
+      ["carbon_rich_soil", "geological_pressure", "time"],
+      ["prospecting", "mining", "mountain_region"]
+    ],
+    "herrings": [
+      { "components": ["coal_mine", "water_filter"], "plausibility": 0.5 }
+    ]
+  },
+  "lemon_juice": {
+    "name": "Lemon Juice",
+    "year": 800,
+    "info": "Lemon juice is an acidic substance that can conduct electricity when combined with certain metals.",
+    "links": [
+      {"text": "Lemon", "url": "https://en.wikipedia.org/wiki/Lemon"}
+    ],
+    "components": [
+      ["lemon", "pressing", "straining"],
+      ["citrus_fruit", "squeezing", "collection"]
+    ],
+    "herrings": [
+      { "components": ["yellow_dye", "water"], "plausibility": 0.2 }
+    ]
+  },
+  "vinegar": {
+    "name": "Vinegar",
+    "year": 500,
+    "info": "Vinegar is an acidic liquid produced from the fermentation of ethanol. It has been used since ancient times.",
+    "links": [
+      {"text": "Vinegar", "url": "https://en.wikipedia.org/wiki/Vinegar"}
+    ],
+    "components": [
+      ["wine", "air_exposure", "time"],
+      ["fruit_juice", "fermentation", "aging"]
+    ],
+    "herrings": [
+      { "components": ["salt", "water", "lemon"], "plausibility": 0.4 }
+    ]
+  },
+  "copper_wire": {
+    "name": "Copper Wire",
+    "year": 1600,
+    "info": "Copper wire is a single electrical conductor made of copper, which has excellent electrical conductivity.",
+    "links": [
+      {"text": "Wire", "url": "https://en.wikipedia.org/wiki/Wire"},
+      {"text": "Electrical wiring", "url": "https://en.wikipedia.org/wiki/Electrical_wiring"}
+    ],
+    "components": [
+      ["copper_plate", "draw_plate", "pliers"],
+      ["copper_rod", "hammering", "annealing"]
+    ],
+    "herrings": [
+      { "components": ["string", "gold_dust"], "plausibility": 0.4 },
+      { "components": ["copper_sheet", "scissors"], "plausibility": 0.6 }
+    ]
+  },
+  "magnet": {
+    "name": "Magnet",
+    "year": 1200,
+    "info": "Magnets are materials that produce a magnetic field. Natural magnets like lodestone have been known since ancient times.",
+    "links": [
+      {"text": "Magnet", "url": "https://en.wikipedia.org/wiki/Magnet"},
+      {"text": "Lodestone", "url": "https://en.wikipedia.org/wiki/Lodestone"}
+    ],
+    "components": [
+      ["lodestone", "polishing", "mounting"],
+      ["iron_bar", "lightning_strike", "specific_orientation"]
+    ],
+    "herrings": [
+      { "components": ["silver", "mercury"], "plausibility": 0.3 },
+      { "components": ["special_rock", "moonlight"], "plausibility": 0.2 }
+    ]
+  },
+  "draw_plate": {
+    "name": "Draw Plate",
+    "year": 1400,
+    "info": "A draw plate is a tool with holes of various sizes used to draw wire to a specific diameter.",
+    "links": [
+      {"text": "Wire drawing", "url": "https://en.wikipedia.org/wiki/Wire_drawing"}
+    ],
+    "components": [
+      ["steel_plate", "drill", "polishing"],
+      ["iron_block", "precision_holes", "hardening"]
+    ],
+    "herrings": [
+      { "components": ["wood_block", "knife"], "plausibility": 0.4 }
+    ]
+  },
+  "pliers": {
+    "name": "Pliers",
+    "year": 1000,
+    "info": "Pliers are hand tools used to hold objects firmly and bend or manipulate materials.",
+    "links": [
+      {"text": "Pliers", "url": "https://en.wikipedia.org/wiki/Pliers"}
+    ],
+    "components": [
+      ["iron_bars", "pivot_pin", "forge_welding"],
+      ["steel_strips", "hinge", "shaped_jaws"]
+    ],
+    "herrings": [
+      { "components": ["sticks", "rope"], "plausibility": 0.3 }
     ]
   }
 }

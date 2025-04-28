@@ -1,14 +1,78 @@
 {
+  "year": 1500,
+  "name": "1500AD",
   "tagline": "Gunpowder and God-Kings",
-  "overview": "The Renaissance blooms...",
+  "overview": "The Renaissance blooms across Europe. Art, science, and exploration flourish under powerful monarchs. The New World has just been discovered, and the printing press is revolutionizing knowledge. Could you introduce electricity and change history?",
   "questions": {
     "Q1": {
-      "text": "How would you build a basic battery?",
+      "text": "How would you build a basic battery in Renaissance Europe?",
+      "info": "Batteries store electrical energy in chemical form. Simple batteries can be created with basic materials that would have been available in the Renaissance era.",
+      "links": [
+        {"text": "History of the Battery", "url": "https://en.wikipedia.org/wiki/History_of_the_battery"},
+        {"text": "Voltaic Pile", "url": "https://en.wikipedia.org/wiki/Voltaic_pile"}
+      ],
       "choices": [
-        { "text": "Copper plate + vinegar + zinc", "correct": true, "crafting_targets": ["copper_plate", "zinc"], "plausibility": 1 },
-        { "text": "Graphite rod + zinc + lemon juice", "correct": true, "crafting_targets": ["graphite_rod", "zinc"], "plausibility": 1 },
-        { "text": "Gold + wine", "correct": false, "plausibility": 0.2 },
-        { "text": "Magic crystals", "correct": false, "plausibility": 0 }
+        { 
+          "text": "Copper plate + vinegar + zinc", 
+          "correct": true, 
+          "crafting_targets": ["copper_plate", "zinc"], 
+          "plausibility": 1,
+          "feedback": "Good choice! This is essentially a simple voltaic pile, which could produce a small electric current."
+        },
+        { 
+          "text": "Graphite rod + zinc + lemon juice", 
+          "correct": true, 
+          "crafting_targets": ["graphite_rod", "zinc"], 
+          "plausibility": 1,
+          "feedback": "Excellent! This combination creates a simple galvanic cell that would produce electricity."
+        },
+        { 
+          "text": "Gold + wine", 
+          "correct": false, 
+          "plausibility": 0.2,
+          "feedback": "While gold is conductive, this combination wouldn't generate the electrochemical reaction needed for a battery."
+        },
+        { 
+          "text": "Magic crystals", 
+          "correct": false, 
+          "plausibility": 0,
+          "feedback": "Magic isn't real, and the locals would likely burn you as a heretic for suggesting such things."
+        }
+      ]
+    },
+    "Q2": {
+      "text": "How would you create a simple electric motor?",
+      "info": "Electric motors convert electrical energy into mechanical energy using electromagnetic principles.",
+      "links": [
+        {"text": "Electric motor", "url": "https://en.wikipedia.org/wiki/Electric_motor"},
+        {"text": "History of the electric motor", "url": "https://en.wikipedia.org/wiki/Electric_motor#History"}
+      ],
+      "choices": [
+        { 
+          "text": "Copper wire + magnet + battery", 
+          "correct": true, 
+          "crafting_targets": ["copper_wire", "magnet"], 
+          "plausibility": 1,
+          "feedback": "Perfect! This is the basic setup for a simple electric motor. The interaction between the magnetic field and electric current causes motion."
+        },
+        { 
+          "text": "Silver thread + lodestone + vinegar", 
+          "correct": false, 
+          "plausibility": 0.6,
+          "feedback": "While lodestone is magnetic and silver is conductive, this combination wouldn't create the necessary electromagnetic interaction."
+        },
+        { 
+          "text": "Gold coins + spinning wheel", 
+          "correct": false, 
+          "plausibility": 0.3,
+          "feedback": "This would just be an expensive spinning wheel, not an electric motor. You're on the wrong track."
+        },
+        { 
+          "text": "Prayer + anointed oil", 
+          "correct": false, 
+          "plausibility": 0.1,
+          "feedback": "The local clergy would appreciate your piety, but divine intervention isn't a reliable power source."
+        }
       ]
     }
   }
