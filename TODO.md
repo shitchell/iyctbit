@@ -42,7 +42,7 @@ tags) in this markdown document, here we are.
   - Possible special era option as implemented: "altered timelines"
   - ? Multi-selection dropdown to facilitate a the above mix mode
   - Each storyline in the list should make sense with the fact that {era selection dropdown} values could be "altered timelines", multiple eras, or a single era. Whatever the user selection, reading the storyline with any of those values injected should sound sensical.
-- [ ] 
+- [ ] Add the idea of "meta" tags and recipes. e.g.: for a battery, one of the meta-recipes might be `["anode", "cathode", "electrolyte"]`. This will facilitate procedurally generated gameplays where we say "You land in the year 0,&4$. Something is weird... but here's a list of cool items in this year (if you can call it that): ..." and then have arbitrary random names given to tags. Then it is up to the user to remember "okay, in this scenario, 'Flidrolog' is an electrolyte", so when the Battery question comes up, they can select a recipe that lists "Flidrolog" as an ingredient.
 
 ### General
 
