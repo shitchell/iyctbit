@@ -42,24 +42,38 @@
     },
     "Q2": {
       "text": "How would you create a simple electric motor?",
-      "info": "Electric motors convert electrical energy into mechanical energy using electromagnetic principles.",
+      "info": "Electric motors convert electrical energy into mechanical energy using electromagnetic principles. The first crude electric motor was built by Michael Faraday in 1821.",
       "links": [
         {"text": "Electric motor", "url": "https://en.wikipedia.org/wiki/Electric_motor"},
-        {"text": "History of the electric motor", "url": "https://en.wikipedia.org/wiki/Electric_motor#History"}
+        {"text": "History of the electric motor", "url": "https://en.wikipedia.org/wiki/Electric_motor#History"},
+        {"text": "Faraday's early electric motor", "url": "https://en.wikipedia.org/wiki/Homopolar_motor"}
       ],
       "choices": [
         { 
           "text": "Copper wire + magnet + battery", 
           "correct": true, 
           "crafting_targets": ["copper_wire", "magnet"], 
-          "plausibility": 1,
+          "plausibility": 1.0,
           "feedback": "Perfect! This is the basic setup for a simple electric motor. The interaction between the magnetic field and electric current causes motion."
+        },
+        { 
+          "text": "Electromagnet + pivot + commutator", 
+          "correct": true, 
+          "crafting_targets": ["copper_wire", "iron_bar", "switching_mechanism"], 
+          "plausibility": 1.0,
+          "feedback": "Excellent! You've created a more advanced electric motor with a commutator to switch current direction, allowing continuous rotation."
         },
         { 
           "text": "Silver thread + lodestone + vinegar", 
           "correct": false, 
-          "plausibility": 0.6,
-          "feedback": "While lodestone is magnetic and silver is conductive, this combination wouldn't create the necessary electromagnetic interaction."
+          "plausibility": 0.8,
+          "feedback": "While lodestone is magnetic and silver is conductive, this combination wouldn't create the necessary electromagnetic interaction. The vinegar wouldn't provide enough electrical current."
+        },
+        { 
+          "text": "Iron needle + mercury + battery", 
+          "correct": false, 
+          "plausibility": 0.9,
+          "feedback": "This is extremely close to Faraday's original design, but the mercury would just allow the needle to rotate slightly before stopping. You need a continuous current path."
         },
         { 
           "text": "Gold coins + spinning wheel", 
@@ -72,6 +86,60 @@
           "correct": false, 
           "plausibility": 0.1,
           "feedback": "The local clergy would appreciate your piety, but divine intervention isn't a reliable power source."
+        },
+        { 
+          "text": "Perpetual motion stone + starlight", 
+          "correct": false, 
+          "plausibility": 0.0,
+          "feedback": "The Renaissance nobles stare at you in disbelief. 'What nonsense is this? Are you trying to make fools of us with your fantastical tales?'"
+        }
+      ]
+    },
+    "Q3": {
+      "text": "How would you demonstrate electricity to Renaissance scientists?",
+      "info": "Electricity was not fully understood during the Renaissance, although some phenomena like static electricity were observed.",
+      "links": [
+        {"text": "History of electricity", "url": "https://en.wikipedia.org/wiki/Electricity#History"},
+        {"text": "Electrostatics", "url": "https://en.wikipedia.org/wiki/Electrostatics"}
+      ],
+      "choices": [
+        { 
+          "text": "Amber rod + fur + light objects", 
+          "correct": true, 
+          "crafting_targets": ["amber", "fur_cloth"], 
+          "plausibility": 1.0,
+          "feedback": "Great choice! Rubbing amber with fur creates static electricity, which can attract small objects. This demonstration was known to the ancient Greeks."
+        },
+        { 
+          "text": "Battery + copper wire + compass", 
+          "correct": true, 
+          "crafting_targets": ["battery", "copper_wire"], 
+          "plausibility": 1.0,
+          "feedback": "Excellent! This setup demonstrates Oersted's discovery that electric current affects magnetic fields - a fundamental principle of electromagnetism."
+        },
+        { 
+          "text": "Glass rod + silk + gold leaf", 
+          "correct": false, 
+          "plausibility": 0.9,
+          "feedback": "You're very close! The glass and silk create static electricity, but you'd need a more controlled setup like a Leyden jar to make a convincing demonstration."
+        },
+        { 
+          "text": "Lemon + copper + iron nail", 
+          "correct": false, 
+          "plausibility": 0.7,
+          "feedback": "This would create a very weak current, but without any visible effect. You'd need a way to demonstrate that electricity is being produced."
+        },
+        { 
+          "text": "Lightning rod + metal chain", 
+          "correct": false, 
+          "plausibility": 0.4,
+          "feedback": "This could be dangerous! Without proper insulation and grounding, you'd risk electrocution if lightning actually struck."
+        },
+        { 
+          "text": "Magic wand + incantation", 
+          "correct": false, 
+          "plausibility": 0.0,
+          "feedback": "Your 'magical' demonstration gets you reported to the Church authorities. Witchcraft accusations in this era are no joking matter!"
         }
       ]
     }
