@@ -1,0 +1,5 @@
+body { font-family: sans-serif; margin: 20px; }
+.question { margin-bottom: 20px; }
+.choice { display: block; margin: 8px 0; }
+.hidden { display: none; }
+#score { margin-top: 20px; font-weight: bold; }

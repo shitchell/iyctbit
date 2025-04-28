@@ -1,0 +1,22 @@
+{
+  "battery": {
+    "year": 1800,
+    "components": [
+      ["vinegar", "zinc", "copper_plate"],
+      ["graphite_rod", "zinc", "lemon_juice"]
+    ],
+    "herrings": [
+      { "components": ["forks", "apple"], "plausibility": 0.5 },
+      { "components": ["tin_foil", "olive_oil", "bronze_nails"], "plausibility": 0.8 }
+    ]
+  },
+  "copper_plate": {
+    "year": 1400,
+    "components": [
+      ["copper_ore", "forge", "hammer"]
+    ],
+    "herrings": [
+      { "components": ["silver_ore", "wooden_mallet"], "plausibility": 0.7 }
+    ]
+  }
+}
