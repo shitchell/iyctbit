@@ -12,7 +12,3 @@ A fun quiz game where you see if you could bootstrap technology and change histo
 - `js/main.js` - Full quiz engine
 - `js/data/eras/` - Era definitions and core questions
 - `js/data/crafting.json` - Crafting technology graph
-
-## Notes
-- Customize `numCoreQuestions` and `exitMidRabbitHole` in `main.js` as desired.
-- Add some info bubbles and wiki links in places (not 100% sure where yet)
