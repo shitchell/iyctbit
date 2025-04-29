@@ -1,0 +1,20 @@
+[
+    {
+        "knowledgeId": "boil_water_sanitation",
+        "era": -2000,
+        "region": "Mesopotamia",
+        "coherence": 0.8
+    },
+    {
+        "knowledgeId": "heliocentric_theory",
+        "era": 1500,
+        "region": "Western Europe",
+        "coherence": 0.2
+    },
+    {
+        "knowledgeId": "battery_copper_vinegar_zinc",
+        "era": 1800,
+        "region": "GlobalAverage",
+        "coherence": 0.95
+    }
+]

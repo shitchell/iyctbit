@@ -1,0 +1,53 @@
+{
+    "year": 1500,
+    "name": "1500 AD",
+    "tagline": "Swords, Ships, and Shaky Empires",
+    "overview": "The world of 1500 sees powerful kingdoms, long-distance maritime exploration, early gunpowder, nascent printing presses, and rigid religious structures.",
+    "questions": [
+        {
+            "text": "How would you build a basic battery?",
+            "choices": [
+                {
+                    "customText": "Copper plate + vinegar + zinc",
+                    "answerObject": {
+                        "text": "Battery via Copper/Vinegar/Zinc",
+                        "yearIntroduced": 1800,
+                        "environmentalCoherence": 0.95,
+                        "culturalCoherence": 0.8,
+                        "impactScore": 100
+                    }
+                },
+                {
+                    "customText": "Graphite rod + lemon juice + zinc",
+                    "answerObject": {
+                        "text": "Battery via Graphite/Lemon/Zinc",
+                        "yearIntroduced": 1800,
+                        "environmentalCoherence": 0.9,
+                        "culturalCoherence": 0.75,
+                        "impactScore": 100
+                    }
+                },
+                {
+                    "customText": "Gold + wine",
+                    "answerObject": {
+                        "text": "Gold Wine Conductivity Theory",
+                        "yearIntroduced": 1500,
+                        "environmentalCoherence": 0.1,
+                        "culturalCoherence": 0.9,
+                        "impactScore": -10
+                    }
+                },
+                {
+                    "customText": "Magic crystals",
+                    "answerObject": {
+                        "text": "Magic Crystals Energy Theory",
+                        "yearIntroduced": 1500,
+                        "environmentalCoherence": 0.05,
+                        "culturalCoherence": 0.95,
+                        "impactScore": -25
+                    }
+                }
+            ]
+        }
+    ]
+}
