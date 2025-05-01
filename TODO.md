@@ -142,16 +142,21 @@ tags) in this markdown document, here we are.
 
 ### Batch 6: Documentation Improvement
 
-- [/] Enhance inline documentation and code comments.
-  - **How**: Added JSDoc-style comments for new modules (Logger.js, ErrorHandler.js)
-  - **Why incomplete**: Original codebase comments remain unchanged
-  - **Design decision**: Prioritized new module documentation first
+- [X] Enhance inline documentation and code comments.
+  - **How**: Added comprehensive JSDoc-style comments to all engine components
+  - **Why**: Improves code readability and supports future maintenance
+  - **Design decisions**:
+    - Used TypeScript-style type annotations in JSDoc comments
+    - Explained complex logic with detailed inline comments
+    - Documented design patterns and architectural decisions
+    - Added context explaining the "why" not just the "what"
 
 - [X] Update technical documentation to reflect architecture changes.
-  - **How**: Created tests/README.md and enhanced HTML debug display
+  - **How**: Created architecture diagrams and comprehensive explanation docs
   - **Why**: Makes codebase more maintainable and accessible to new contributors
   - **Design decisions**:
+    - Created PlantUML diagram with complete class relationships and types
+    - Added detailed architecture explanation document
+    - Documented component interactions and data flow
+    - Identified design patterns used throughout the codebase
     - Added test setup and execution instructions
-    - Created browser-based debug panel for easy troubleshooting
-    - Documented logging levels and URL parameters
-    - Focused on developer-oriented documentation
