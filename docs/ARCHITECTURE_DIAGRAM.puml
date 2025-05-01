@@ -1,0 +1,211 @@
+@startuml "If You Could Go Back In Time - Architecture"
+
+' Style settings
+skinparam backgroundColor #FEFEFE
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam packageStyle rectangle
+skinparam classBackgroundColor #F0F8FF
+skinparam noteBackgroundColor #FFFACD
+
+' Title
+title "If You Could Go Back In Time" - Architecture Diagram
+
+' Define packages
+package "Engine" {
+  class GameEngine {
+    - settings: Settings
+    - history: GameHistory
+    - currentEra: Object
+    - state: GameState
+    + async startNewGame(): void
+    + askCoreQuestions(): void
+    + askQuestion(question: Question, depth: number): void
+    + shouldContinueRabbitHole(coherenceScore: number): boolean
+    + endGame(): void
+  }
+
+  class GameState {
+    - score: number
+    - rhDepth: number
+    - unsolvedComponents: string[]
+    - currentTarget: KnowledgeTransmission|null
+    - answeredQuestions: AnsweredQuestion[]
+    + recordAnsweredQuestion(question: Question, selectedChoice: Choice, coherenceScore: number, depth: number): void
+    + calculateFinalScore(settings: Settings): number
+    + getBestImpact(): string
+    + getWorstMistake(): string
+  }
+
+  class GameHistory {
+    - completedGames: GameState[]
+    + saveGame(gameState: GameState): void
+    + getLastGame(): GameState|null
+  }
+
+  class EraLoader {
+    + {static} async loadEra(filename: string): Object|null
+  }
+
+  class Settings {
+    + numCoreQuestions: number
+    + exitMidRabbitHole: boolean
+    + includeCulturalCoherence: boolean
+    + baseCoherenceFloor: number
+    + coherenceRamp: number
+  }
+
+  class Logger {
+    + {static} LOG_LEVELS: Object
+    + {static} currentLevel: number
+    + {static} logToConsole: boolean
+    + {static} logHistory: Object[]
+    + {static} setLevel(level: number): void
+    + {static} enableConsoleOutput(enabled: boolean): void
+    + {static} clearHistory(): void
+    + {static} debug(message: string, data?: Object): void
+    + {static} info(message: string, data?: Object): void
+    + {static} warn(message: string, data?: Object): void
+    + {static} error(message: string, data?: Object): void
+    + {static} getHistory(): Object[]
+  }
+
+  class ErrorHandler {
+    + {static} ERROR_CODES: Object
+    + {static} initialize(): void
+    + {static} handleError(error: Error, context: string, data?: Object): string
+    + {static} assert(condition: boolean, message: string, code: string, data?: Object): void
+    + {static} createError(message: string, code: string, data?: Object): Error
+  }
+
+  ' Standalone functions
+  class "evaluateChoiceCoherence()" as evaluateCoherence << function >> {
+    + evaluateChoiceCoherence(choice: Choice, settings: Settings): number
+  }
+}
+
+package "Content" {
+  class KnowledgeTransmission {
+    - text: string
+    - yearIntroduced: number
+    - environmentalCoherence: number
+    - culturalCoherence: number
+    - impactScore: number
+    + getText(): string
+    + getYearIntroduced(): number
+    + getEnvironmentalCoherence(): number
+    + getCulturalCoherence(): number
+    + getCoherence(): number
+    + getImpactScore(): number
+    + getSuccessResponse(): string
+    + getFailureResponse(): string
+    + getCorrectChoices(): any[]
+  }
+
+  class Technology {
+    - recipes: string[][]
+    + getFollowupQuestions(): Question[]
+  }
+
+  class KnowledgeIdea {
+    + getFollowupQuestions(): Question[]
+  }
+
+  class Question {
+    - text: string
+    - target: KnowledgeTransmission
+    - choices: Choice[]
+    + getText(): string
+    + shuffleChoices(): void
+  }
+
+  class Choice {
+    - customText: string|null
+    - customSuccessResponse: string|null
+    - customFailureResponse: string|null
+    - answerObject: KnowledgeTransmission
+    + getText(): string
+    + getSuccessResponse(): string
+    + getFailureResponse(): string
+    + getCoherence(): number
+  }
+
+  class AnsweredQuestion {
+    - question: Question
+    - selectedChoice: Choice
+    - correct: boolean
+    - depth: number
+    + getPoints(settings: Settings): number
+    + getImpact(): number
+  }
+}
+
+package "Data" {
+  class "1500AD.json" as EraData << file >> {
+    year: number
+    name: string
+    tagline: string
+    overview: string
+    questions: Object[]
+  }
+  
+  class "cultural_coherence.json" as CulturalData << file >> {
+    knowledgeId: string
+    era: number
+    region: string
+    coherence: number
+  }
+}
+
+' Entry point
+class "main.js" as Main << entry >>
+
+' Inheritance
+KnowledgeTransmission <|-- Technology
+KnowledgeTransmission <|-- KnowledgeIdea
+
+' Associations
+Main --> GameEngine : creates
+Main --> Settings : creates
+GameEngine o--> Settings : uses
+GameEngine o--> GameState : creates
+GameEngine o--> GameHistory : creates
+GameEngine --> EraLoader : uses
+GameEngine --> evaluateCoherence : uses
+GameState o--> AnsweredQuestion : contains
+Question o--> Choice : contains
+Choice --> KnowledgeTransmission : references
+AnsweredQuestion --> Question : references
+AnsweredQuestion --> Choice : references
+EraLoader ..> EraData : loads
+GameEngine ..> Logger : logs events
+GameEngine ..> ErrorHandler : handles errors
+
+' Notes
+note bottom of EraLoader
+  Creates Question and Choice objects
+  from JSON data at runtime
+end note
+
+note right of evaluateCoherence
+  Determines if a choice is
+  valid based on coherence
+  scoring and settings
+end note
+
+note bottom of GameState
+  Tracks player progress
+  and calculates final score
+end note
+
+note bottom of Technology
+  Physical invention knowledge
+  with component recipes
+end note
+
+note bottom of KnowledgeIdea
+  Social, political, or
+  medical knowledge
+end note
+
+@enduml
