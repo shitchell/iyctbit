@@ -68,4 +68,35 @@ tags) in this markdown document, here we are.
   - 1+ silly recipe -- plausibility <= 0.2
   - 2+ semi-plausible herrings -- 0.2 < plausibility < 0.8
   - 2+ plausible herrings -- plausibility >= 0.8
-- 
+
+## AI Refactor
+
+### Batch 1: Modularization
+
+- [ ] Wrap game logic in a `GameEngine` class to encapsulate states and settings.
+- [ ] Separate main functionalities into distinct modules for UI handling, game logic, and data management.
+
+### Batch 2: Data Structure Enhancements
+
+- [ ] Normalize era and crafting JSON to include `year` and `name`.
+- [ ] Centralize configuration parameters into a dedicated module.
+
+### Batch 3: Code Consistency and Cleanup
+
+- [ ] Standardize naming conventions across variables, functions, and files.
+- [ ] Apply consistent code formatting.
+
+### Batch 4: Error Handling and Logging
+
+- [ ] Implement logging for events and errors.
+- [ ] Enhance error handling for robust detection.
+
+### Batch 5: Unit Testing
+
+- [ ] Develop automated test suites for key functionalities.
+- [ ] Use AI to generate test cases based on existing functions.
+
+### Batch 6: Documentation Improvement
+
+- [ ] Enhance inline documentation and code comments.
+- [ ] Update technical documentation to reflect architecture changes.
