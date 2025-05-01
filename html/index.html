@@ -2,11 +2,118 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>If You Could Go Back In Time</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    #game-log {
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 1rem;
+      max-height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    #debug-panel {
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: #eef;
+      border: 1px solid #ccf;
+      border-radius: 4px;
+      display: none;
+    }
+    .debug-active #debug-panel {
+      display: block;
+    }
+    .log-entry {
+      margin-bottom: 0.5rem;
+      padding: 0.25rem;
+      border-bottom: 1px solid #eee;
+    }
+    .log-INFO {
+      color: #333;
+    }
+    .log-DEBUG {
+      color: #888;
+    }
+    .log-WARN {
+      color: #a50;
+      background-color: #fffbe6;
+    }
+    .log-ERROR {
+      color: #e33;
+      background-color: #fff0f0;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <h1>If You Could Go Back In Time...</h1>
+  
   <pre id="game-log"></pre>
+  
+  <div id="debug-panel">
+    <h3>Debug Log</h3>
+    <div id="debug-log"></div>
+  </div>
+  
   <script type="module" src="../js/main.js"></script>
+  <script>
+    // Check if debug mode is enabled
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('debug') === 'true') {
+      document.body.classList.add('debug-active');
+    }
+    
+    // Override console methods to capture output
+    const gameLog = document.getElementById('game-log');
+    const debugLog = document.getElementById('debug-log');
+    
+    // Store original console methods
+    const originalConsole = {
+      log: console.log,
+      warn: console.warn,
+      error: console.error,
+      debug: console.debug
+    };
+    
+    // Wrapper to capture and display console output
+    function wrapConsole(method, logEl, className) {
+      return function() {
+        // Call original method
+        originalConsole[method].apply(console, arguments);
+        
+        // Format and display in game log
+        const message = Array.from(arguments)
+          .map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg)
+          .join(' ');
+        
+        const logEntry = document.createElement('div');
+        logEntry.className = `log-entry log-${className}`;
+        logEntry.textContent = message;
+        logEl.appendChild(logEntry);
+        
+        // Auto-scroll to bottom
+        logEl.scrollTop = logEl.scrollHeight;
+      };
+    }
+    
+    // Override console methods
+    console.log = wrapConsole('log', gameLog, 'INFO');
+    console.warn = wrapConsole('warn', gameLog, 'WARN');
+    console.error = wrapConsole('error', gameLog, 'ERROR');
+    console.debug = wrapConsole('debug', debugLog, 'DEBUG');
+  </script>
 </body>
 </html>

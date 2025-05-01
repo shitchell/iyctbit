@@ -73,13 +73,27 @@ tags) in this markdown document, here we are.
 
 ### Batch 1: Modularization
 
-- [ ] Wrap game logic in a `GameEngine` class to encapsulate states and settings.
-- [ ] Separate main functionalities into distinct modules for UI handling, game logic, and data management.
+- [/] Wrap game logic in a `GameEngine` class to encapsulate states and settings.
+  - **How**: GameEngine class was created to handle core game logic
+  - **Why incomplete**: Still contains some UI logic (console.log, prompt) that should be abstracted
+  - **Design decision**: Kept direct console output for simplicity in current phase
+
+- [/] Separate main functionalities into distinct modules for UI handling, game logic, and data management.
+  - **How**: Engine, content, and data are separated into dedicated directories
+  - **Why incomplete**: UI is still mixed with game logic rather than having a true UI layer
+  - **Design decision**: Partial separation for now to avoid breaking existing functionality
 
 ### Batch 2: Data Structure Enhancements
 
-- [ ] Normalize era and crafting JSON to include `year` and `name`.
-- [ ] Centralize configuration parameters into a dedicated module.
+- [X] Normalize era and crafting JSON to include `year` and `name`.
+  - **How**: Updated 1500AD.json schema and added validation in EraLoader.js
+  - **Why**: Makes data more consistent and enables filtering by year/era
+  - **Design decision**: Used explicit validation to catch missing required fields
+
+- [/] Centralize configuration parameters into a dedicated module.
+  - **How**: Settings.js now handles core configuration parameters
+  - **Why incomplete**: Some parameters (like coherence thresholds) remain hardcoded
+  - **Design decision**: Prioritized moving core game settings first
 
 ### Batch 3: Code Consistency and Cleanup
 
@@ -88,15 +102,56 @@ tags) in this markdown document, here we are.
 
 ### Batch 4: Error Handling and Logging
 
-- [ ] Implement logging for events and errors.
-- [ ] Enhance error handling for robust detection.
+- [X] Implement logging for events and errors.
+  - **How**: Created Logger.js with DEBUG, INFO, WARN, and ERROR log levels
+  - **Why**: Provides visibility into game operations and helps debug issues
+  - **Design decisions**:
+    - Used static class methods for simplicity and global access
+    - Added URL parameter control for runtime log level adjustment
+    - Implemented log history tracking for post-game debugging
+    - Created visual log display in UI with color-coding
+
+- [X] Enhance error handling for robust detection.
+  - **How**: Created ErrorHandler.js with standardized error codes and handling
+  - **Why**: Prevents crashes and improves debugging of issues
+  - **Design decisions**:
+    - Defined specific error codes (E001-E006) for different error types
+    - Added try/catch blocks around key functions with context information
+    - Implemented global unhandled error catching through window listeners
+    - Used error codes and data payloads to make errors more machine-readable
 
 ### Batch 5: Unit Testing
 
-- [ ] Develop automated test suites for key functionalities.
-- [ ] Use AI to generate test cases based on existing functions.
+- [X] Develop automated test suites for key functionalities.
+  - **How**: Set up Jest + jsdom for unit testing and Playwright for E2E tests
+  - **Why**: Ensures code reliability and detects regressions
+  - **Design decisions**:
+    - Used Jest for unit tests due to jsdom support for browser-like environment
+    - Implemented E2E tests with Playwright to test actual browser interactions
+    - Created component-level isolation through mocking
+    - Added UI element testing for game output verification
+
+- [X] Use AI to generate test cases based on existing functions.
+  - **How**: Generated comprehensive test cases covering core game functionality
+  - **Why**: Achieves high test coverage across different use cases
+  - **Design decisions**:
+    - Focused on edge cases and error handling scenarios
+    - Created negative test cases (invalid inputs, errors, etc.)
+    - Applied test-driven refinements to existing code
+    - Used parallel test execution for efficiency
 
 ### Batch 6: Documentation Improvement
 
-- [ ] Enhance inline documentation and code comments.
-- [ ] Update technical documentation to reflect architecture changes.
+- [/] Enhance inline documentation and code comments.
+  - **How**: Added JSDoc-style comments for new modules (Logger.js, ErrorHandler.js)
+  - **Why incomplete**: Original codebase comments remain unchanged
+  - **Design decision**: Prioritized new module documentation first
+
+- [X] Update technical documentation to reflect architecture changes.
+  - **How**: Created tests/README.md and enhanced HTML debug display
+  - **Why**: Makes codebase more maintainable and accessible to new contributors
+  - **Design decisions**:
+    - Added test setup and execution instructions
+    - Created browser-based debug panel for easy troubleshooting
+    - Documented logging levels and URL parameters
+    - Focused on developer-oriented documentation
